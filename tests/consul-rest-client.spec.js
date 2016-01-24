@@ -5,7 +5,9 @@ import ConsulRestClient from '../lib/consul-rest-client';
 chai.should();
 
 describe('ConsulRestClient', ()=> {
+
     let client;
+
     beforeEach(()=> {
         client = new ConsulRestClient();
     });
