@@ -15,7 +15,6 @@ describe('ConsulRestClient:', ()=> {
     describe('#ctor', ()=> {
 
         it('should create instance', ()=> {
-            console.log(client);
             (!!client).should.be.equal(true);
         });
     });
