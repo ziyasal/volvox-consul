@@ -4,9 +4,9 @@ async function main() {
 
     let client = new ConsulRestClient("http://172.17.42.1", 8500);
 
-    await client.registerServiceAsync("at", "test-id", "http://localhost:6964/")
+    await client.registerServiceAsync("test-svc", "test-id", "http://localhost:6964/");
 
-    let response = await client.findServiceAsync("at");
+    let response = await client.findServiceAsync("test-svc");
     console.log(response);
 }
 
