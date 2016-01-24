@@ -1,0 +1,39 @@
+[
+  {
+    "Node": {
+      "Node": "consul",
+      "Address": "172.17.42.1"
+    },
+    "Service": {
+      "ID": "test-id",
+      "Service": "test-svc",
+      "Tags": [
+        "urlprefix-/test-svc"
+      ],
+      "Address": "ziyasal-ubuntu",
+      "Port": 0
+    },
+    "Checks": [
+      {
+        "Node": "consul",
+        "CheckID": "service:test-id",
+        "Name": "Service 'test-svc' check",
+        "Status": "critical",
+        "Notes": "",
+        "Output": "Get http://localhost:6964/status: dial tcp: lookup localhost: no such host",
+        "ServiceID": "test-id",
+        "ServiceName": "test-svc"
+      },
+      {
+        "Node": "consul",
+        "CheckID": "serfHealth",
+        "Name": "Serf Health Status",
+        "Status": "passing",
+        "Notes": "",
+        "Output": "Agent alive and reachable",
+        "ServiceID": "",
+        "ServiceName": ""
+      }
+    ]
+  }
+]
