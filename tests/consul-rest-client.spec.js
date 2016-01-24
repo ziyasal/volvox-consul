@@ -4,7 +4,7 @@ import ConsulRestClient from '../lib/consul-rest-client';
 
 chai.should();
 
-describe('ConsulRestClient', ()=> {
+describe('ConsulRestClient:', ()=> {
 
     let client;
 
@@ -14,7 +14,10 @@ describe('ConsulRestClient', ()=> {
 
     describe('#ctor', ()=> {
 
-        (!!client).should.be.equal(true);
+        it('should create instance', ()=> {
+            console.log(client);
+            (!!client).should.be.equal(true);
+        });
     });
 
 });
