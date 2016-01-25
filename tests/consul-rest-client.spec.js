@@ -1,6 +1,6 @@
 import chai from 'chai';
 
-import ConsulRestClient from '../lib/consul-rest-client';
+import ConsulRestClient from '../src/consul-rest-client';
 
 chai.should();
 
