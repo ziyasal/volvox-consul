@@ -1,12 +1,13 @@
 import {ServiceInformation, ClusterProvider} from 'microphone-core';
 import {CronJob} from 'cron';
+import ConsulRestClient from './consul-rest-client';
 
 export default class ConsulProvider extends ClusterProvider {
 
     constructor(client, logger) {
         super();
 
-        this._client = client;
+        this._client = client || new ConsulRestClient();
         this._logger = logger;
 
         this._serviceName = "";
