@@ -1,0 +1,1 @@
+ .\consul.exe agent -server -data-dir /tmp/consul -advertise 127.0.0.1 -ui -bootstrap true
