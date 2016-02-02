@@ -1,5 +1,6 @@
 import request from 'request';
 import os from 'os';
+import url from 'url';
 import {ServiceInformation} from 'microphone-core';
 
 const DEFAULT_PORT = 8500;
@@ -17,7 +18,7 @@ export default class ConsulRestClient {
             Name: serviceName,
             Tags: [`urlprefix-/${serviceName}`],
             Address: os.hostname(),
-            Port: address.Port,
+            Port: parseInt(url.parse(address).port),
             Check: {
                 HTTP: `${address}/status`,
                 Interval: "1s"

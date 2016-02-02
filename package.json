@@ -1,6 +1,6 @@
 {
   "name": "microphone-consul",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Consul provider for microphone.js Microservice framework",
   "main": "lib/index.js",
   "scripts": {
