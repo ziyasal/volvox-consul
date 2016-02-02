@@ -58,21 +58,22 @@ export default class ConsulProvider extends ClusterProvider {
 
 
             try {
-                var res = await this._client.getCriticalServicesAsync();
+                var response = await this._client.getCriticalServicesAsync();
+                this._logger.info(JSON.stringify(response));
 
-                for (let criticalServiceId in res) {
+                response.forEach(async (criticalServiceId)=> {
                     if (lookup.indexOf(criticalServiceId) !== -1) {
-                        await c.unRegisterServiceAsync(criticalServiceId);
+                        await this._client.unRegisterServiceAsync(criticalServiceId);
                         this._logger.info(`Reaper: Removing ${criticalServiceId}`);
                     }
                     else {
                         lookup.push(criticalServiceId);
                         this._logger.info(`Reaper: Marking ${criticalServiceId}`);
                     }
-                }
+                });
 
                 //remove entries that are no longer critical
-                lookup.filter(serviceId => !(lookup.indexOf(serviceId) !== -1));
+                lookup.filter(serviceId => lookup.indexOf(serviceId) < 0);
 
             }
             catch (ex) {

@@ -2,13 +2,17 @@ import ConsulRestClient from '../src/consul-rest-client';
 
 async function main() {
 
-    let client = new ConsulRestClient("http://172.17.42.1", 8500);
+    let client = new ConsulRestClient("http://localhost", 8500);
 
-    await client.registerServiceAsync("test-svc", "test-id", "http://localhost:6964/");
+    //await client.registerServiceAsync("test-svc", "test-id", "http://localhost:6964/");
+    //let response = await client.findServiceAsync("test-svc");
+    //let response = await client.unRegisterServiceAsync("test-svc");
+    let response = await client.getCriticalServicesAsync();
 
-    let response = await client.findServiceAsync("test-svc");
-    console.log(response);
+    response.forEach(async (criticalServiceId)=> {
+        await client.unRegisterServiceAsync(criticalServiceId);
+    });
 }
 
 main();
-console.log("[STARTED]");
+console.log("[MAIN] STARTED");

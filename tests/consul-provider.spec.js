@@ -2,7 +2,7 @@ import chai from 'chai';
 
 import sinon from "sinon";
 
-import ConsulProvider from '../src/index';
+import {ConsulProvider} from '../src/index';
 
 chai.should();
 

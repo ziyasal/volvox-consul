@@ -61,6 +61,7 @@ export default class ConsulRestClient {
             type: 'GET'
         };
 
+        console.log(options.uri)
         await this.__request(options, "Could not de register service");
     }
 

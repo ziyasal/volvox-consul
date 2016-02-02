@@ -1,3 +1,7 @@
-import ConsulProvider from './consul-provider'
+import ConsulProvider from './consul-provider';
+import ConsulRestClient from './consul-rest-client'
 
-export default ConsulProvider;
+export {
+    ConsulProvider,
+    ConsulRestClient
+};
