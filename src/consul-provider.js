@@ -59,7 +59,6 @@ export default class ConsulProvider extends ClusterProvider {
 
             try {
                 var response = await this._client.getCriticalServicesAsync();
-                this._logger.info(JSON.stringify(response));
 
                 response.forEach(async (criticalServiceId)=> {
                     if (lookup.indexOf(criticalServiceId) !== -1) {
