@@ -37,12 +37,15 @@ export default class ConsulProvider extends ClusterProvider {
         this.__startReaper();
     }
 
-    async bootstrapClientAsync() {
-        this.__startReaper();
 
-        //Task.FromResult(0);
+    async bootstrapClientAsync() {
         return new Promise((resolve, reject)=> {
-            return resolve({});
+            try {
+                this.__startReaper();
+                return resolve({status: 'STARTED'});
+            } catch (ex) {
+                reject(ex);
+            }
         });
     }
 

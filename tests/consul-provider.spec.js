@@ -37,4 +37,13 @@ describe('ConsulRestClient:', ()=> {
         });
     });
 
+    describe('#bootstrapClientAsync', ()=> {
+
+        it('should start reaper', async ()=> {
+            let resp = await provider.bootstrapClientAsync();
+            console.log(resp);
+            resp.status.should.be.equal("STARTED");
+        });
+    });
+
 });
