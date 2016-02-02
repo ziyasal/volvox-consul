@@ -19,7 +19,7 @@ export default class ConsulRestClient {
             Address: os.hostname(),
             Port: address.Port,
             Check: {
-                HTTP: `${address}status`,
+                HTTP: `${address}/status`,
                 Interval: "1s"
             }
         };
