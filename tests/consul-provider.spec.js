@@ -14,14 +14,20 @@ describe('ConsulRestClient:', ()=> {
             info: function (msg) {
             }
         },
-        consulClientMock, loggerMock;
+        randomProvider = {
+            next: function (low, high) {
+
+            }
+        },
+        consulClientMock, loggerMock, randomProviderMock;
 
     beforeEach(()=> {
 
         consulClientMock = sinon.mock(consulClient);
         loggerMock = sinon.mock(logger);
+        randomProviderMock = sinon.mock(randomProvider);
 
-        provider = new ConsulProvider(consulClient, logger);
+        provider = new ConsulProvider(consulClient, logger, randomProvider);
     });
 
     describe('#ctor', ()=> {
