@@ -1,7 +1,7 @@
 import request from 'request';
 import os from 'os';
 import url from 'url';
-import {ServiceInformation} from 'microphone-core';
+import {ServiceInformation} from 'volvox-core';
 
 const DEFAULT_PORT = 8500;
 const DEFAULT_HOST = 'http://localhost';

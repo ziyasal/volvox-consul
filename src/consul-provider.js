@@ -1,4 +1,4 @@
-import {ServiceInformation, ClusterProvider} from 'microphone-core';
+import {ServiceInformation, ClusterProvider} from 'volvox-core';
 import {CronJob} from 'cron';
 import ConsulRestClient from './consul-rest-client';
 
@@ -7,7 +7,7 @@ export default class ConsulProvider extends ClusterProvider {
     constructor(client, logger, randomProvider) {
         super(randomProvider);
 
-        this._client = client || new ConsulRestClient();
+        this._client = client;
         this._logger = logger;
 
         this._serviceName = "";
