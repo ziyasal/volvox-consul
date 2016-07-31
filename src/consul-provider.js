@@ -4,8 +4,8 @@ import ConsulRestClient from './consul-rest-client';
 
 export default class ConsulProvider extends ClusterProvider {
 
-    constructor(client, logger, randomProvider) {
-        super(randomProvider);
+    constructor(client, logger, randomGenerator) {
+        super(randomGenerator);
 
         this._client = client;
         this._logger = logger;

@@ -33,14 +33,14 @@ export default class ConsulRestClient {
                 Interval: "1s"
             }
         };
-
+        console.log(`${address}/status`)
         let options = {
             uri: `${this._address}:${this._port}/v1/agent/service/register`,
             type: 'POST',
             json: payload
         };
 
-        await  this.__request(options, "Could not register service");
+        await this.__request(options, "Could not register service");
     }
 
     /**
@@ -103,8 +103,8 @@ export default class ConsulRestClient {
      * @private
      */
     __request(options, message) {
-        return new Promise((resolve, reject)=> {
-            request(options, (error, response, body)=> {
+        return new Promise((resolve, reject) => {
+            request(options, (error, response, body) => {
                 if (error) return reject(new Error(message));
 
                 resolve(body);
