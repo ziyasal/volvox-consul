@@ -6,9 +6,10 @@ import {RandomGenerator} from 'volvox-core'
 
 export default (logger, consulClient, randomGenerator) => {
     //TODO: determine required parameters
-    if (typeof consulClient === 'string') { consulClient = new ConsulRestClient(consulClient) }
+    if (typeof consulClient === 'string') {consulClient = new ConsulRestClient(consulClient)}
+    
     return new ConsulProvider(
-        consulClient || new ConsulRestClient()
+        consulClient || new ConsulRestClient() // will use default address and port
         , logger || bunyan.createLogger({ name: "volvox.js" })
         , randomGenerator || new RandomGenerator())
 
